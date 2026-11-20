@@ -1,9 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// =====================================
 // 1. ESTRUTURA DO NO
-// =====================================
 
 typedef struct No {
     int valor;
@@ -12,9 +10,7 @@ typedef struct No {
     struct No *dir;
 } No;
 
-// =====================================
 // 2. FUNCOES AUXILIARES
-// =====================================
 
 int max(int a, int b) {
     return (a > b) ? a : b;
@@ -54,9 +50,7 @@ void atualizarAltura(No *n) {
     n->altura = 1 + max(obterAltura(n->esq), obterAltura(n->dir));
 }
 
-// =====================================
 // 3. IMPRESSAO DA ARVORE
-// =====================================
 
 void imprimirEmOrdem(No *raiz) {
     if (raiz != NULL) {
@@ -81,9 +75,7 @@ void imprimirArvore(No *raiz, int nivel) {
     imprimirArvore(raiz->esq, nivel + 1);
 }
 
-// =====================================
 // 4. ROTACOES AVL
-// =====================================
 
 No *rotacaoDireita(No *y) {
     No *x = y->esq;
@@ -121,9 +113,7 @@ No *rotacaoRL(No *n) {
     return rotacaoEsquerda(n);
 }
 
-// =====================================
 // 5. INSERCAO NA ARVORE AVL
-// =====================================
 
 No *inserir(No *raiz, int valor) {
     if (raiz == NULL)
@@ -155,10 +145,7 @@ No *inserir(No *raiz, int valor) {
     return raiz;
 }
 
-// =====================================
 // 6. BUSCA NA ARVORE AVL
-// =====================================
-
 int buscar(No *raiz, int valor) {
     if (raiz == NULL)
         return 0;
@@ -172,9 +159,7 @@ int buscar(No *raiz, int valor) {
     return buscar(raiz->dir, valor);
 }
 
-// =====================================
 // 7. REMOCAO NA ARVORE AVL
-// =====================================
 
 No *menorValor(No *raiz) {
     No *atual = raiz;
@@ -237,9 +222,7 @@ No *remover(No *raiz, int valor) {
     return raiz;
 }
 
-// =====================================
 // 8. LIBERAR MEMORIA
-// =====================================
 
 void liberarArvore(No *raiz) {
     if (raiz != NULL) {
@@ -249,9 +232,7 @@ void liberarArvore(No *raiz) {
     }
 }
 
-// =====================================
 // 9. PROGRAMA PRINCIPAL
-// =====================================
 
 int main(void) {
     No *raiz = NULL;
